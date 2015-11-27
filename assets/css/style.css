@@ -1,0 +1,11 @@
+
+.search_btn {
+  position: relative;
+  right: 42px;
+  display: inline-block;
+  width: 43px;
+  height: 32px;
+  background-color: #ccc;
+  border-radius: 0px 5px 5px 0;
+  vertical-align: bottom;
+}
