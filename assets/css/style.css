@@ -6,6 +6,9 @@
   width: 43px;
   height: 32px;
   background-color: #ccc;
+  border: 1px solid #888;
   border-radius: 0px 5px 5px 0;
   vertical-align: bottom;
+  cursor: pointer;
+
 }
