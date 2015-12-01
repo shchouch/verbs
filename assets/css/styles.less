@@ -1,0 +1,39 @@
+@grey: #ccc;
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+.border-radius(@r1, @r2, @r3, @r4) {
+  -webkit-border-radius: @r1 @r2 @r3 @r4;
+     -moz-border-radius: @r1 @r2 @r3 @r4;
+          border-radius: @r1 @r2 @r3 @r4;
+}
+
+.search_btn {
+  position: relative;
+  right: 42px;
+  display: inline-block;
+  width: 43px;
+  height: 32px;
+  background-color: @grey;
+  border: 1px solid #888;
+  .border-radius(0px, 5px, 5px, 0);
+  vertical-align: bottom;
+  cursor: pointer;
+
+}
+
+.addition_button {
+  &:extend(.search_btn);
+  position: absolute;
+}
+
+.verb_form {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 5px 10px;
+  padding: 5px 10px;
+  background-color: rgba(204, 204, 204, 0.62);
+}

@@ -1,0 +1,25 @@
+.search_btn,
+.addition_button {
+  position: relative;
+  right: 42px;
+  display: inline-block;
+  width: 43px;
+  height: 32px;
+  background-color: #cccccc;
+  border: 1px solid #888;
+  -webkit-border-radius: 0px 5px 5px 0;
+  -moz-border-radius: 0px 5px 5px 0;
+  border-radius: 0px 5px 5px 0;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+.addition_button {
+  position: absolute;
+}
+.verb_form {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 5px 10px;
+  padding: 5px 10px;
+  background-color: rgba(204, 204, 204, 0.62);
+}

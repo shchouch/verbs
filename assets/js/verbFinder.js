@@ -18,6 +18,7 @@ function verbFinder(id) {
 var container;
 var searchInput;
 var searchBtn;
+var vResultsContainer;
 
   //Initialise the main elements of the plugin
 
@@ -27,10 +28,11 @@ var searchBtn;
 
     searchInput = document.createElement('input');
     searchInput.className = 'search_input';
+    searchInput.setAttribute('id', 'v_input');
     searchInput.setAttribute('placeholder', 'Enter 1st form of the verb...');
-    searchInput.setAttribute('value', ' ');
+    searchInput.setAttribute('value', '');
 
-    searchBtn = document.createElement('div');
+    searchBtn = document.createElement('button');
     searchBtn.className = 'search_btn';
 
     container.appendChild(searchInput);
@@ -39,26 +41,57 @@ var searchBtn;
     console.log(searchInput);
 
     function verbSearch() {
-      var lookingWord = searchInput.value();
+      var lookingWord = document.getElementById('v_input').value;
+
       for ( var key in verbBase) {
-        for ( var i = 0; i < verbBase[key].length; i++ ) {
-          if ( verbBase[key][i] == lookingWord ) {
-            console.log('Find similar');
-          } else {
-            console.log('No match');
+
+        for ( var i = 0; i <= verbBase[key].length-1 ; i++ ) {
+          console.log( lookingWord, verbBase[key][i] );
+          if ( lookingWord === verbBase[key][i] ) {
+            vResultsContainer = document.createElement('div');
+            vResultsContainer.className = "verb_results_container";
+            vResultsContainer.setAttribute('id', 'v_results');
+
+            var verbForm = [];
+
+            for ( var k = 0; k < 3; k++) {
+
+              verbForm.push( document.createElement('span') );
+              console.log( verbBase[key][k] );
+              verbForm[k].className = 'verb_form';
+              verbForm[k].innerHTML = verbBase[key][k];
+              vResultsContainer.appendChild( verbForm[k] );
+            }
+            console.log( verbForm );
+            container.appendChild(vResultsContainer);
+
           }
+
         }
+
       }
+
     }
 
     searchBtn.addEventListener('click', verbSearch);
+
+    /*function creatResults() {
+      vResultsContainer = document.createElement('div');
+      vResultsContainer.className = "verb_results_container";
+      vResultsContainer.setAttribute('id', 'v_results');
+
+      var firstForm = document.createElement('span');
+      firstForm.text(verbBase[key][0]);
+
+      container.appendChild(vResultsContainer);
+    }*/
 
 
 
 
   //Base of all irrelgular verbs
   var verbBase = {
-    "see" : ["see", "saw", "seen"],
+    "see" : ['see', 'saw', 'seen'],
     "eat" : ["eat", "ate", "eaten"],
 
   };
